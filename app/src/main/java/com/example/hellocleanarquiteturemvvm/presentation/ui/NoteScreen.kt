@@ -32,7 +32,7 @@ fun NoteScreen(noteViewModel: NoteViewModel, modifier: Modifier = Modifier){
                         Note(
                             id = notes.size+1,
                             title = "New Note ${notes.size+1}",
-                            content = "This is a new note",
+                            content = "This is a new note = 3333",
                             timestamp = System.currentTimeMillis()
                         )
                     )
