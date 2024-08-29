@@ -31,7 +31,7 @@ fun NoteScreen(noteViewModel: NoteViewModel, modifier: Modifier = Modifier){
                     noteViewModel.addNote(
                         Note(
                             id = notes.size+1,
-                            title = "New Note ${notes.size+1}",
+                            title = "New Note ${notes.size+1} Agora eu sei",
                             content = "This is a new note = 3333",
                             timestamp = System.currentTimeMillis()
                         )
