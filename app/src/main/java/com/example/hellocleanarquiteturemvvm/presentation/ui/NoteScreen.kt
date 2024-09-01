@@ -21,6 +21,7 @@ import com.example.hellocleanarquiteturemvvm.presentation.NoteViewModel
 @Composable
 fun NoteScreen(noteViewModel: NoteViewModel, modifier: Modifier = Modifier){
     val notes by noteViewModel.notes.collectAsState()
+    val contador by noteViewModel.contadores.collectAsState()
 
 
     Scaffold(
@@ -32,18 +33,19 @@ fun NoteScreen(noteViewModel: NoteViewModel, modifier: Modifier = Modifier){
                         Note(
                             id = notes.size+1,
                             title = "New Note ${notes.size+1} Agora eu sei",
-                            content = "This is a new note = 3333",
+                            content = "This is a new note = ${contador}",
                             timestamp = System.currentTimeMillis()
                         )
                     )
                 }
             ){
-                Text(text = "+")
+                Text(text = "+ $contador")
             }
         }
     ) { innerPadding ->
         LazyColumn(modifier = Modifier.padding(innerPadding),) {
-            items(notes) { note -> Text(text = note.title)
+            items(notes) {
+                note -> Text(text = note.title + " - " + contador)
             }
         }
     }

@@ -17,6 +17,9 @@ class NoteViewModel (
     private val _notes = MutableStateFlow<List<Note>>(emptyList())
     val notes: StateFlow<List<Note>> = _notes
 
+    private val _contator = MutableStateFlow(0)
+    val contadores: StateFlow<Int> = _contator
+
     init {
         loadNotes()
     }
@@ -29,6 +32,7 @@ class NoteViewModel (
 
     fun addNote(note: Note) {
         viewModelScope.launch {
+            _contator.value += 1
             addNoteUseCase.addNote(note = note)
             loadNotes()
         }
